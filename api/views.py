@@ -3,8 +3,8 @@ from .models import Task
 
 def index(request):
     tasks = Task.objects.all()
-    # return render(request, 'api/index.html', {'tasks': tasks})
-    return render(request, 'base.html')
+    return render(request, 'index.html', {'tasks': tasks})
+    # return render(request, 'bas.html')
 
 def add_task(request):
     if request.method == 'POST':

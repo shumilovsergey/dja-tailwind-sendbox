@@ -1,0 +1,31 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To-Do List</title>
+
+{% tailwind_css %}
+    
+</head>
+<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+    <div class="m-52">
+        <div class="flex items-center justify-center">
+            <form action="{% url 'api:add_task' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="task_title" placeholder="Add a new task">
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+        <div class="flex items-center justify-center">
+            <ul>
+                {% for task in tasks %}
+                    <li class="text-5xl flex items-center justify-center">{{ task.title }}{% if task.completed %} (Completed){% endif %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -813,6 +813,18 @@ select {
   position: sticky;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.m-52 {
+  margin: 13rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
